@@ -1,0 +1,15 @@
+﻿{
+    "version": "0.2.0-release-*",
+    "name": "ChocoPacker.Loader",
+
+    "dependencies": {
+        "NETStandard.Library": "1.0.0-rc3-*",
+        "ChocoPacker.Common": "0.2.0-release-*",
+        "Autofac": "4.0.0-rc2-*"
+    },
+
+    "frameworks": {
+        "netcoreapp1.0": {},
+        "netstandard1.5": {}
+    }
+}
