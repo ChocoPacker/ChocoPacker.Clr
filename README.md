@@ -5,6 +5,7 @@
 Contains all the interfaces, attributes and exceptions which should be implemented by plugins.
 
 Shared components:
+
 1. IGeneralConfiguration - interface with configuration, you can use it as constructor dependency in your plugins.
 2. IInstallTypeDetector
     - You should decide some constant for installer type detected by your plugin. 
