@@ -1,5 +1,9 @@
 # ChocoPacker common libraries
 
+Build status:
+
+[![Build status](https://ci.appveyor.com/api/projects/status/1mhqmnv9qq61mkq1?svg=true)](https://ci.appveyor.com/project/nitridan/chocopacker-core)
+
 ## ChocoPacker.Common 
 
 Contains all the interfaces, attributes and exceptions which should be implemented by plugins.
