@@ -8,8 +8,12 @@ namespace ChocoPacker.Common
 
         public string Author { get; set; }
 
-        public string InstallString { get; set; }
+        public string InstallExecutable { get; set; }
+        
+        public string InstallArguments { get; set; }
 
-        public string UninstallString { get; set; }
+        public string UninstallExecutable { get; set; }
+        
+        public string UninstallArguments { get; set; }
     }
 }
