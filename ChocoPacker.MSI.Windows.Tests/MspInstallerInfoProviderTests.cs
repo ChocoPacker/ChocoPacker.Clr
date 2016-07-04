@@ -11,9 +11,11 @@ namespace ChocoPacker.MSI.Windows.Tests
             var mspInfoProvider = new MspInstallerInfoProvider();
             var info = mspInfoProvider.GetInstallerInfo("patch.msp".GetTestFilePath());
             Assert.Equal("Dynamo Corp", info.Author);
-            Assert.Equal("msiexec /p \"patch.msp\" /qn REBOOT=ReallySuppress", info.InstallString);
+            Assert.Equal("/p \"patch.msp\" /qn REBOOT=ReallySuppress", info.InstallArguments);
+            Assert.Equal("msiexec", info.InstallExecutable);
+            Assert.Equal("msiexec", info.UninstallExecutable);            
             Assert.Equal("Sample Patch", info.ProductName);
-            Assert.Equal("msiexec /i {48C49ACE-90CF-4161-9C6E-9162115A54DD} /qn MSIPATCHREMOVE={224C316C-5894-4771-BABF-21A3AC1F75FF} REBOOT=ReallySuppress", info.UninstallString);
+            Assert.Equal("/i {48C49ACE-90CF-4161-9C6E-9162115A54DD} /qn MSIPATCHREMOVE={224C316C-5894-4771-BABF-21A3AC1F75FF} REBOOT=ReallySuppress", info.UninstallArguments);
             Assert.Null(info.ProductVersion);
         }
         
@@ -23,9 +25,11 @@ namespace ChocoPacker.MSI.Windows.Tests
             var mspInfoProvider = new MspInstallerInfoProvider();
             var info = mspInfoProvider.GetInstallerInfo("patch_no_remove.msp".GetTestFilePath());
             Assert.Equal("Dynamo Corp", info.Author);
-            Assert.Equal("msiexec /p \"patch_no_remove.msp\" /qn REBOOT=ReallySuppress", info.InstallString);
+            Assert.Equal("/p \"patch_no_remove.msp\" /qn REBOOT=ReallySuppress", info.InstallArguments);
+            Assert.Equal("msiexec", info.InstallExecutable);            
             Assert.Equal("Sample Patch", info.ProductName);
-            Assert.Equal(string.Empty, info.UninstallString);
+            Assert.Equal(string.Empty, info.UninstallArguments);
+            Assert.Equal(string.Empty, info.UninstallExecutable);            
             Assert.Null(info.ProductVersion);
         }
         

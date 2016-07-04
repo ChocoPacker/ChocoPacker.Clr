@@ -16,8 +16,10 @@ namespace ChocoPacker.MSI.Windows
                     Author = db.ReadProperty(ManufacturerProperty),
                     ProductName = db.ReadProperty(ProductNameProperty),
                     ProductVersion = db.ReadProperty(ProductVersionProperty),
-                    UninstallString = $"msiexec /x {productCode} /qn REBOOT=ReallySuppress",
-                    InstallString = $"msiexec /i \"{fileName}\" /qn REBOOT=ReallySuppress"
+                    InstallExecutable = WindowsInstallerExecutable,
+                    UninstallExecutable = WindowsInstallerExecutable,
+                    UninstallArguments = $"/x {productCode} /qn REBOOT=ReallySuppress",
+                    InstallArguments = $"/i \"{fileName}\" /qn REBOOT=ReallySuppress"
                 };
             });
     }

@@ -18,12 +18,17 @@ namespace ChocoPacker.MSI.Windows
         public InstallerInfo GetInstallerInfo(string installerPath)
             => base.OpenMsi(installerPath, db => {
                var mspName = Path.GetFileName(installerPath);
+               var uninstallArgs = GetUninstallString(db.AsMspQueryable());
                return new InstallerInfo
                {
                    Author = db.ReadMspProperty(MspManufacturerProperty),
                    ProductName = db.ReadMspProperty(MspProductNameProperty),
-                   InstallString = $"msiexec /p \"{mspName}\" /qn REBOOT=ReallySuppress",
-                   UninstallString = GetUninstallString(db.AsMspQueryable())
+                   UninstallExecutable = string.IsNullOrEmpty(uninstallArgs) 
+                        ? string.Empty 
+                        : WindowsInstallerExecutable,
+                   InstallExecutable = WindowsInstallerExecutable,
+                   InstallArguments = $"/p \"{mspName}\" /qn REBOOT=ReallySuppress",
+                   UninstallArguments = uninstallArgs
                };
             });
             
@@ -40,7 +45,7 @@ namespace ChocoPacker.MSI.Windows
             var productCodes = db.SummaryInfo.Template.Split(';');
             return productCodes.Length != 1 || !GuidRegex.IsMatch(productCodes.First()) || string.IsNullOrEmpty(patchId)
                 ? string.Empty
-                : $"msiexec /i {productCodes.First()} /qn MSIPATCHREMOVE={patchId} REBOOT=ReallySuppress";
+                : $"/i {productCodes.First()} /qn MSIPATCHREMOVE={patchId} REBOOT=ReallySuppress";
         }
     }
 }

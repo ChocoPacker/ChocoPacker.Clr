@@ -1,24 +1,16 @@
 {
-    "version": "0.2.0-release-*",
+    "version": "0.3.0-release-*",
     "name": "ChocoPacker.MSI.Windows",
 
     "dependencies": {
-        "NETStandard.Library": "1.0.0-rc3-*",
-        "ChocoPacker.Common": "0.2.0-release-*",
-        "Microsoft.Deployment.WindowsInstaller": "1.0.0-release-*",
-        "Microsoft.Deployment.WindowsInstaller.Linq": "1.0.0-release-*"        
+        "NETStandard.Library": "1.6.0",
+        "ChocoPacker.Common": "0.3.0-release-*",
+        "Microsoft.Deployment.WindowsInstaller": "1.2.0-release-*",
+        "Microsoft.Deployment.WindowsInstaller.Linq": "1.2.0-release-*"        
     },
 
     "frameworks": {
-        "netcoreapp1.0": {
-            "imports": [
-                "dnxcore50"
-            ]
-        },
-        "netstandard1.5": {
-            "imports": [
-                "dnxcore50"
-            ]
-        }
+        "netcoreapp1.0": {},
+        "netstandard1.6": {}
     }
 }

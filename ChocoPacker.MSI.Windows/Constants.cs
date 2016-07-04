@@ -19,5 +19,7 @@ namespace ChocoPacker.MSI.Windows
         public const string MspProductNameProperty = "DisplayName";
         
         public const string MspAllowRemovalProperty = "AllowRemoval";
+
+        public const string WindowsInstallerExecutable = "msiexec";
     }
 }
