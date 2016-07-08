@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using ChocoPacker.Common;
 
 namespace ChocoPacker.Loader
@@ -36,7 +37,7 @@ namespace ChocoPacker.Loader
         {
             try 
             {
-                var assemblyName = new AssemblyName(path);
+                var assemblyName = AssemblyLoadContext.GetAssemblyName(path);
                 return Assembly.Load(assemblyName);
             } 
             catch (Exception ex)
