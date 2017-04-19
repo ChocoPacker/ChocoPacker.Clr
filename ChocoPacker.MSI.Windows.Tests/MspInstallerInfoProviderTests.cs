@@ -6,7 +6,7 @@ namespace ChocoPacker.MSI.Windows.Tests
     public class MspInstallerInfoProviderTests
     {
         [Fact]
-        public void GetInstallerInfo_UninstallablePath_ProperInfo()
+        public void GetInstallerInfo_UninstallablePatch_ProperInfo()
         {
             var mspInfoProvider = new MspInstallerInfoProvider();
             var info = mspInfoProvider.GetInstallerInfo("patch.msp".GetTestFilePath());
@@ -20,7 +20,7 @@ namespace ChocoPacker.MSI.Windows.Tests
         }
         
         [Fact]
-        public void GetInstallerInfo_NonUninstallablePath_ProperInfo()
+        public void GetInstallerInfo_NonUninstallablePatch_ProperInfo()
         {
             var mspInfoProvider = new MspInstallerInfoProvider();
             var info = mspInfoProvider.GetInstallerInfo("patch_no_remove.msp".GetTestFilePath());
