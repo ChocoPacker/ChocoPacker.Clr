@@ -1,0 +1,16 @@
+version: 0.3.{build}
+skip_tags: true
+environment:
+  NUGET_FEED: https://www.myget.org/F/chocopacker/api/v3/index.json
+  NUGET_KEY:
+    secure: PsPKm16AVZV7O1sewAgbC339Ea86rrRqEZ1gn4bZWLo5dGttbyeti2/mXr+e2Hyq
+build_script:
+- cmd: powershell -file build.ps1 -localDotNet -buildNumber %APPVEYOR_BUILD_NUMBER%
+test: off
+artifacts:
+- path: ChocoPacker.Common\bin\Release\*.nupkg
+  name: Nuget.Common
+- path: ChocoPacker.Loader\bin\Release\*.nupkg
+  name: Nuget.Loader
+on_success:
+- cmd: powershell -file publishNuget.ps1 -repoUrl %NUGET_FEED% -repoKey %NUGET_KEY%
