@@ -15,11 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChocoPacker.Burn\ChocoPacker.Burn.csproj" />
+    <ProjectReference Include="..\..\src\ChocoPacker.Burn\ChocoPacker.Burn.csproj" />
+    <ProjectReference Include="..\..\src\ChocoPacker.Common\ChocoPacker.Common.csproj" />
   </ItemGroup>
   
 <ItemGroup>
-    <Content Include="..\TestFiles\*.*">
+    <Content Include="TestFiles\*.*">
       <Link>TestFiles\%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -29,7 +30,6 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
     <PackageReference Include="xunit" Version="2.2.0" />
-    <PackageReference Include="ChocoPacker.Common" Version="0.3.0-release-*" />
   </ItemGroup>
 
 </Project>

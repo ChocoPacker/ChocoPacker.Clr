@@ -24,14 +24,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\TestFiles\*.*">
+    <Content Include="TestFiles\*.*">
       <Link>TestFiles\%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChocoPacker.SevenZip\ChocoPacker.SevenZip.csproj" />
+    <ProjectReference Include="..\..\src\ChocoPacker.SevenZip\ChocoPacker.SevenZip.csproj" />
   </ItemGroup>
 
   <ItemGroup>

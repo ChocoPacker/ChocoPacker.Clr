@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ChocoPacker.SevenZip" Version="0.3.0-release-*" />
-    <PackageReference Include="ChocoPacker.Common" Version="0.3.0-release-*" />
+    <ProjectReference Include="..\ChocoPacker.Common\ChocoPacker.Common.csproj" />
+    <ProjectReference Include="..\ChocoPacker.SevenZip\ChocoPacker.SevenZip.csproj" />
   </ItemGroup>
 
 </Project>

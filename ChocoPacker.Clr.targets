@@ -1,0 +1,23 @@
+<Project>
+    <ItemGroup>
+        <SrcProjects Include="$(MSBuildThisFileDirectory)src\**\*.csproj" />
+        <TestProjects Include="$(MSBuildThisFileDirectory)tests\**\*.csproj" />
+    </ItemGroup>
+    <Target Name="Build">
+        <!-- Restore NuGet packages -->
+        <Message Text="Restoring NuGet for projects:" Importance="High" />
+        <Message Text="@(SrcProjects)" Importance="High" />
+        <Exec Command="dotnet restore &quot;%(SrcProjects.Identity)&quot;" />
+        <Message Text="Restoring NuGet for test projects:" Importance="High" />
+        <Message Text="@(TestProjects)" Importance="High" />
+        <Exec Command="dotnet restore &quot;%(TestProjects.Identity)&quot;" />
+
+        <!-- build projects -->
+        <Message Text="Building projects:" Importance="High" />
+        <Message Text="@(SrcProjects)" Importance="High" />
+        <Exec Command="dotnet build &quot;%(SrcProjects.Identity)&quot;" />
+        <Message Text="Building test projects:" Importance="High" />
+        <Message Text="@(TestProjects)" Importance="High" />
+        <Exec Command="dotnet build &quot;%(TestProjects.Identity)&quot;" />
+    </Target>
+</Project>

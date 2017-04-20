@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChocoPacker.Loader\ChocoPacker.Loader.csproj" />
-    <ProjectReference Include="..\ChocoPacker.Common\ChocoPacker.Common.csproj" />
+    <ProjectReference Include="..\..\src\ChocoPacker.Loader\ChocoPacker.Loader.csproj" />
+    <ProjectReference Include="..\..\src\ChocoPacker.Common\ChocoPacker.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
