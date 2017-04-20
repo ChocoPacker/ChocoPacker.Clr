@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <VersionPrefix>0.3.0-release</VersionPrefix>
+    <TargetFrameworks>netcoreapp1.0;netstandard1.6</TargetFrameworks>
+    <AssemblyName>ChocoPacker.Loader</AssemblyName>
+    <PackageId>ChocoPacker.Loader</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChocoPacker.Common\ChocoPacker.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Loader" Version="4.0.0" />
+    <PackageReference Include="Autofac" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>
