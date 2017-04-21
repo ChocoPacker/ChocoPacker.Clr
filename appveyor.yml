@@ -1,4 +1,4 @@
-version: 0.3.{build}
+version: 0.4.{build}
 skip_tags: true
 environment:
   NUGET_FEED: https://www.myget.org/F/chocopacker/api/v3/index.json
@@ -8,9 +8,7 @@ build_script:
 - cmd: powershell -file build.ps1 -localDotNet -buildNumber %APPVEYOR_BUILD_NUMBER%
 test: off
 artifacts:
-- path: ChocoPacker.Common\bin\Release\*.nupkg
-  name: Nuget.Common
-- path: ChocoPacker.Loader\bin\Release\*.nupkg
-  name: Nuget.Loader
+- path: src\**\*.nupkg
+  name: Nuget
 on_success:
 - cmd: powershell -file publishNuget.ps1 -repoUrl %NUGET_FEED% -repoKey %NUGET_KEY%
