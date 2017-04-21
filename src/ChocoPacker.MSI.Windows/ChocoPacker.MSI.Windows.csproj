@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="$(MSBuildThisFileDirectory)..\..\CommonVersion.props" />
   <PropertyGroup>
-    <VersionPrefix>0.3.0-release</VersionPrefix>
     <TargetFrameworks>netcoreapp1.0;netstandard1.6</TargetFrameworks>
     <AssemblyName>ChocoPacker.MSI.Windows</AssemblyName>
     <PackageId>ChocoPacker.MSI.Windows</PackageId>

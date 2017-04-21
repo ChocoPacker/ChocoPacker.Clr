@@ -3,7 +3,7 @@
         <SrcProjects Include="$(MSBuildThisFileDirectory)src\**\*.csproj" />
         <TestProjects Include="$(MSBuildThisFileDirectory)tests\**\*.csproj" />
     </ItemGroup>
-    <Target Name="Build">
+    <Target Name="BuildAndTest">
         <!-- Restore NuGet packages -->
         <Message Text="Restoring NuGet for projects:" Importance="High" />
         <Message Text="@(SrcProjects)" Importance="High" />
@@ -15,9 +15,14 @@
         <!-- build projects -->
         <Message Text="Building projects:" Importance="High" />
         <Message Text="@(SrcProjects)" Importance="High" />
-        <Exec Command="dotnet build &quot;%(SrcProjects.Identity)&quot;" />
+        <Exec Command="dotnet build &quot;%(SrcProjects.Identity)&quot; -c Release" />
         <Message Text="Building test projects:" Importance="High" />
         <Message Text="@(TestProjects)" Importance="High" />
-        <Exec Command="dotnet build &quot;%(TestProjects.Identity)&quot;" />
+        <Exec Command="dotnet build &quot;%(TestProjects.Identity)&quot; -c Release" />
+
+        <!-- run tests -->
+        <Message Text="Running tests:" Importance="High" />
+        <Message Text="@(TestProjects)" Importance="High" />
+        <Exec Command="dotnet test &quot;%(TestProjects.Identity)&quot;" />
     </Target>
 </Project>

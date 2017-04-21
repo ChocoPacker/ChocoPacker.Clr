@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Content Include="TestFiles\*.*">
-      <Link>TestFiles\%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
