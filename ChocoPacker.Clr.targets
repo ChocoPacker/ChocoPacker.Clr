@@ -1,4 +1,8 @@
 <Project>
+    <!-- Set default build number if not provided -->
+    <PropertyGroup Condition="$(VersionSuffix) == ''">
+        <VersionSuffix>0</VersionSuffix>
+    </PropertyGroup>
     <ItemGroup>
         <SrcProjects Include="$(MSBuildThisFileDirectory)src\**\*.csproj" />
         <TestProjects Include="$(MSBuildThisFileDirectory)tests\**\*.csproj" />
@@ -15,14 +19,20 @@
         <!-- build projects -->
         <Message Text="Building projects:" Importance="High" />
         <Message Text="@(SrcProjects)" Importance="High" />
-        <Exec Command="dotnet build &quot;%(SrcProjects.Identity)&quot; -c Release" />
+        <Exec Command="dotnet build &quot;%(SrcProjects.Identity)&quot; -c Release --version-suffix=$(VersionSuffix)" />
         <Message Text="Building test projects:" Importance="High" />
         <Message Text="@(TestProjects)" Importance="High" />
-        <Exec Command="dotnet build &quot;%(TestProjects.Identity)&quot; -c Release" />
+        <Exec Command="dotnet build &quot;%(TestProjects.Identity)&quot;" />
 
         <!-- run tests -->
         <Message Text="Running tests:" Importance="High" />
         <Message Text="@(TestProjects)" Importance="High" />
         <Exec Command="dotnet test &quot;%(TestProjects.Identity)&quot;" />
+    </Target>
+
+    <Target Name="PackAndPublish">
+        <Message Text="Packing NuGet for projects:" Importance="High" />
+        <Message Text="@(SrcProjects)" Importance="High" />
+        <Exec Command="dotnet pack &quot;%(SrcProjects.Identity)&quot; -c Release --version-suffix=$(VersionSuffix)" />
     </Target>
 </Project>
