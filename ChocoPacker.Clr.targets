@@ -34,5 +34,7 @@
         <Message Text="Packing NuGet for projects:" Importance="High" />
         <Message Text="@(SrcProjects)" Importance="High" />
         <Exec Command="dotnet pack &quot;%(SrcProjects.Identity)&quot; -c Release --version-suffix=$(VersionSuffix)" />
+        <Message Text="Publishing faceade for node.js" Importance="High" />
+        <Exec Command="dotnet publish &quot;$(MSBuildThisFileDirectory)src\ChocoPacker.Facade.Node\ChocoPacker.Facade.Node.csproj&quot; -c Release --version-suffix=$(VersionSuffix)" />
     </Target>
 </Project>

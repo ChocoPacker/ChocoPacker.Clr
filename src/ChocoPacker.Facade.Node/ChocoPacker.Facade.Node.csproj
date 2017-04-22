@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coreclrnode" Version="1.5.0-release-55" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChocoPacker.Burn\ChocoPacker.Burn.csproj" />
+    <ProjectReference Include="..\ChocoPacker.Common\ChocoPacker.Common.csproj" />
+    <ProjectReference Include="..\ChocoPacker.Loader\ChocoPacker.Loader.csproj" />
+    <ProjectReference Include="..\ChocoPacker.MSI.Windows\ChocoPacker.MSI.Windows.csproj" />
+    <ProjectReference Include="..\ChocoPacker.SevenZip\ChocoPacker.SevenZip.csproj" />
+  </ItemGroup>
+
+</Project>
