@@ -10,5 +10,7 @@ test: off
 artifacts:
 - path: src\**\*.nupkg
   name: Nuget
+- path: ChocoPacker.Node.zip
+  name: Output
 on_success:
 - cmd: powershell -file publishNuget.ps1 -repoUrl %NUGET_FEED% -repoKey %NUGET_KEY%
